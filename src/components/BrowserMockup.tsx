@@ -1,12 +1,12 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 const BrowserMockup: React.FC = () => {
   return (
-    <div className="relative mx-auto max-w-md lg:max-w-lg xl:max-w-xl">
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto px-4">
       {/* Browser chrome */}
-      <div className="rounded-xl overflow-hidden shadow-2xl">
+      <div className="rounded-xl overflow-hidden shadow-2xl w-full bg-white">
         {/* Browser top bar */}
         <div className="bg-neutral-100 px-4 py-3 flex items-center border-b border-neutral-200">
           <div className="flex space-x-2">
@@ -18,34 +18,34 @@ const BrowserMockup: React.FC = () => {
             instagram.com
           </div>
         </div>
-        
+
         {/* Browser content */}
-        <div className="bg-white relative">
+        <div className="bg-white relative aspect-[9/16]">
           {/* Mocked social media feed background */}
-          <div className="h-[400px] bg-neutral-50 relative overflow-hidden">
+          <div className="absolute inset-0 bg-neutral-50 overflow-hidden">
             {/* Simulated social media posts (gray rectangles) */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10">
-              <div className="bg-neutral-300 h-32 mx-4 my-4 rounded-lg"></div>
-              <div className="bg-neutral-300 h-40 mx-4 my-4 rounded-lg"></div>
-              <div className="bg-neutral-300 h-28 mx-4 my-4 rounded-lg"></div>
+              <div className="bg-neutral-300 h-1/4 mx-4 my-4 rounded-lg"></div>
+              <div className="bg-neutral-300 h-1/3 mx-4 my-4 rounded-lg"></div>
+              <div className="bg-neutral-300 h-1/5 mx-4 my-4 rounded-lg"></div>
             </div>
-            
+
             {/* Intent popup overlay */}
-            <motion.div 
+            <motion.div
               className="absolute inset-0 bg-black/5 backdrop-blur-sm flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              <motion.div 
-                className="bg-white rounded-2xl shadow-lg p-6 max-w-[80%] w-[360px]"
+              <motion.div
+                className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 w-full max-w-[90%]"
                 initial={{ scale: 0.8, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
-                transition={{ 
-                  type: "spring", 
-                  stiffness: 300, 
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
                   damping: 20,
-                  delay: 0.8
+                  delay: 0.8,
                 }}
               >
                 <div className="flex justify-center mb-4">
@@ -53,14 +53,14 @@ const BrowserMockup: React.FC = () => {
                     <Sparkles className="w-5 h-5 text-primary-600" />
                   </div>
                 </div>
-                
-                <h3 className="text-xl font-semibold text-neutral-900 text-center mb-2">
+
+                <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 text-center mb-2">
                   Did you come here on purpose?
                 </h3>
                 <p className="text-neutral-600 text-center text-sm mb-6">
                   Select your answer to continue browsing.
                 </p>
-                
+
                 <div className="space-y-3">
                   <motion.button
                     className="w-full py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-sm"
@@ -82,10 +82,10 @@ const BrowserMockup: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Decorative elements */}
-      <div className="absolute -z-10 -bottom-6 -right-6 w-32 h-32 bg-primary-100 rounded-full opacity-70 blur-xl"></div>
-      <div className="absolute -z-10 -top-6 -left-6 w-24 h-24 bg-secondary-100 rounded-full opacity-70 blur-xl"></div>
+      <div className="absolute -z-10 -bottom-6 -right-6 w-20 h-20 sm:w-32 sm:h-32 bg-primary-100 rounded-full opacity-70 blur-xl"></div>
+      <div className="absolute -z-10 -top-6 -left-6 w-16 h-16 sm:w-24 sm:h-24 bg-secondary-100 rounded-full opacity-70 blur-xl"></div>
     </div>
   );
 };
