@@ -1,4 +1,4 @@
-# Intent – The Mindful Browsing Extension Landing Page
+# Intent – Extension Landing Page
 
 Intent is a beautiful, modern landing page for the Intent browser extension, which helps you use social media more intentionally so you can enjoy your favorite sites without losing track of time.
 
