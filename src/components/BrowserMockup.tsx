@@ -4,9 +4,9 @@ import { Sparkles } from "lucide-react";
 
 const BrowserMockup: React.FC = () => {
   return (
-    <div className="relative mx-auto max-w-md lg:max-w-lg xl:max-w-xl">
+    <div className="relative w-[calc(100vw-2rem)] max-w-none mx-4 p-4 md:mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl">
       {/* Browser chrome */}
-      <div className="rounded-xl overflow-hidden shadow-2xl">
+      <div className="rounded-xl overflow-hidden border border-neutral-200">
         {/* Browser top bar */}
         <div className="bg-neutral-100 px-4 py-3 flex items-center border-b border-neutral-200">
           <div className="flex space-x-2">
@@ -22,23 +22,18 @@ const BrowserMockup: React.FC = () => {
         {/* Browser content */}
         <div className="bg-white relative">
           {/* Mocked social media feed background */}
-          <div className="h-[400px] bg-neutral-50 relative overflow-hidden">
+          <div className="bg-neutral-50 relative overflow-hidden p-4 py-6 flex flex-col items-center justify-center">
             {/* Simulated social media posts (gray rectangles) */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-10">
-              <div className="bg-neutral-300 h-32 mx-4 my-4 rounded-lg"></div>
-              <div className="bg-neutral-300 h-40 mx-4 my-4 rounded-lg"></div>
-              <div className="bg-neutral-300 h-28 mx-4 my-4 rounded-lg"></div>
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none select-none">
+              <div className="bg-neutral-300 h-1/4 mx-4 my-4 rounded-lg"></div>
+              <div className="bg-neutral-300 h-1/3 mx-4 my-4 rounded-lg"></div>
+              <div className="bg-neutral-300 h-1/5 mx-4 my-4 rounded-lg"></div>
             </div>
 
-            {/* Intent popup overlay */}
-            <motion.div
-              className="absolute inset-0 bg-black/5 backdrop-blur-sm flex items-center justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-            >
+            {/* Intent popup overlay (now in normal flow) */}
+            <div className="relative z-10 w-full flex items-center justify-center">
               <motion.div
-                className="bg-white rounded-2xl shadow-lg p-6 max-w-[80%] w-[360px]"
+                className="bg-white rounded-2xl shadow-lg p-4 w-full md:p-6 md:max-w-[80%] md:w-[360px]"
                 initial={{ scale: 0.8, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
                 transition={{
@@ -78,7 +73,7 @@ const BrowserMockup: React.FC = () => {
                   </motion.button>
                 </div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
