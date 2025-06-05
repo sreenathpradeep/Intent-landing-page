@@ -1,12 +1,13 @@
-import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import HowItWorks from './components/HowItWorks';
-import FAQSection from './components/FAQSection';
-import WhyUse from './components/WhyUse';
-import Footer from './components/Footer';
-import FloatingCTA from './components/FloatingCTA';
+import React from "react";
+import { Analytics } from "@vercel/analytics/next";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import HowItWorks from "./components/HowItWorks";
+import FAQSection from "./components/FAQSection";
+import WhyUse from "./components/WhyUse";
+import Footer from "./components/Footer";
+import FloatingCTA from "./components/FloatingCTA";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       </main>
       <Footer />
       <FloatingCTA />
+      <Analytics />
     </div>
   );
 }
