@@ -148,7 +148,7 @@ const Footer: React.FC = () => {
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <a
-              href="#"
+              href="/privacy"
               className="text-neutral-400 hover:text-white text-sm transition-colors"
             >
               Privacy Policy
