@@ -14,6 +14,16 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ size }) => {
   };
 
   const handleDownload = () => {
+    // Track download click event
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "Lead", {
+        content_name: "Download Intent Extension",
+        content_category: "Extension Download",
+        value: 1,
+        currency: "USD",
+      });
+    }
+
     // Link to the Chrome Web Store extension
     window.open(
       "https://chromewebstore.google.com/detail/intent-app/hhmejhjddlbefdopcpajcfalpnifjhbn",

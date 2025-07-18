@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { useFacebookPixel } from "../hooks/useFacebookPixel";
 
 interface FAQItemProps {
   question: string;
@@ -9,15 +10,29 @@ interface FAQItemProps {
   delay: number;
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isInView, delay }) => {
+const FAQItem: React.FC<FAQItemProps> = ({
+  question,
+  answer,
+  isInView,
+  delay,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+  const { trackEvent } = useFacebookPixel();
+
   const toggleOpen = () => {
+    if (!isOpen) {
+      trackEvent("ViewContent", {
+        content_name: `FAQ: ${question}`,
+        content_category: "FAQ Interaction",
+        value: 1,
+        currency: "USD",
+      });
+    }
     setIsOpen(!isOpen);
   };
-  
+
   return (
-    <motion.div 
+    <motion.div
       className="py-5"
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -29,7 +44,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isInView, delay }) 
         aria-expanded={isOpen}
       >
         <h3 className="text-lg font-medium text-neutral-900">{question}</h3>
-        <motion.div 
+        <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
           className="flex-shrink-0 ml-2"
@@ -37,12 +52,12 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isInView, delay }) 
           <ChevronDown className="h-5 w-5 text-primary-600" />
         </motion.div>
       </button>
-      
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-hidden"

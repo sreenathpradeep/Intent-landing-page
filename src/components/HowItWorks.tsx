@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Chrome, Clock, Eye, Bell, CheckCircle } from "lucide-react";
 import StepCard from "./StepCard";
+import { useFacebookPixel } from "../hooks/useFacebookPixel";
 
 const HowItWorks: React.FC = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  const { trackSectionView } = useFacebookPixel();
+
+  useEffect(() => {
+    if (inView) {
+      trackSectionView("How It Works Section");
+    }
+  }, [inView, trackSectionView]);
 
   const steps = [
     {

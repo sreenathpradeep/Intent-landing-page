@@ -1,15 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Timer, Clock } from 'lucide-react';
-import DownloadButton from './DownloadButton';
-import BrowserMockup from './BrowserMockup';
+import React from "react";
+import { motion } from "framer-motion";
+import { Timer, Clock } from "lucide-react";
+import DownloadButton from "./DownloadButton";
+import BrowserMockup from "./BrowserMockup";
 
 const Hero: React.FC = () => {
   return (
     <section className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center">
-          <motion.div 
+          <motion.div
             className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -17,32 +17,61 @@ const Hero: React.FC = () => {
           >
             <div className="inline-flex items-center mb-6 bg-primary-50 px-4 py-2 rounded-full">
               <Timer className="h-5 w-5 text-primary-600 mr-2" />
-              <span className="text-primary-700 font-medium">Mindful Browsing Extension</span>
+              <span className="text-primary-700 font-medium">
+                Mindful Browsing Extension
+              </span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight mb-6">
-              Take Control of Your 
+              Take Control of Your
               <span className="text-primary-600"> Social Media Time</span>
             </h1>
-            
+
             <p className="text-lg text-neutral-600 mb-8 max-w-lg mx-auto lg:mx-0">
-              Intent helps you use social media more intentionally, so you can enjoy your favorite sites without losing track of time.
+              Intent helps you use social media more intentionally, so you can
+              enjoy your favorite sites without losing track of time.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <DownloadButton size="large" />
-              
-              <a 
-                href="#how-it-works" 
+
+              <a
+                href="#how-it-works"
                 className="inline-flex items-center text-neutral-700 hover:text-primary-600 transition-colors"
               >
                 <Clock className="h-5 w-5 mr-2" />
                 <span>See how it works</span>
               </a>
             </div>
+
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <a
+                href="https://www.producthunt.com/products/intent-5?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-intent-5"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  if (typeof window !== "undefined" && (window as any).fbq) {
+                    (window as any).fbq("track", "ViewContent", {
+                      content_name: "Product Hunt Badge",
+                      content_category: "Social Proof",
+                      value: 1,
+                      currency: "USD",
+                    });
+                  }
+                }}
+              >
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=989586&theme=light&t=1751977254395"
+                  alt="Intent - Take control of your social media time | Product Hunt"
+                  style={{ width: "250px", height: "54px" }}
+                  width="250"
+                  height="54"
+                />
+              </a>
+            </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="lg:w-1/2"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
