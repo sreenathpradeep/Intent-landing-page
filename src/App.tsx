@@ -9,6 +9,8 @@ import WhyUse from "./components/WhyUse";
 import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import Blog from "./components/Blog";
+import BlogPost from "./components/BlogPost";
 
 function HomePage() {
   return (
@@ -34,6 +36,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </div>
     </Router>
